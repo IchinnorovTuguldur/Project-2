@@ -1,0 +1,46 @@
+# Project-2
+
+secret_word = 'computer'
+print('The secret word has length' + ' ' + ' ' + str(len(secret_word)) + '.')
+
+incorrect_guesses_left = 5
+
+print('You have ' +  ' ' + str(incorrect_guesses_left) +  ' ' + ' incorrect guesses left')
+
+for i in range (incorrect_guesses_left):
+  guess = input('Guess: ')
+  incorrect_guesses_left= incorrect_guesses_left - 1
+
+  if incorrect_guesses_left > 0 :
+    if len(guess) == 1:
+        letter_count = secret_word.count(guess)
+
+        if letter_count > 0 :
+          print('That letter is in the word! ' + 'Count: ' + ' ' + str(letter_count)) 
+          print('You have ' +  ' ' + str(incorrect_guesses_left) +  ' ' + ' incorrect guesses left. ')
+
+        elif letter_count == 0: 
+      
+          print('That letter is not in the word. ')
+          print('You have ' + str(incorrect_guesses_left) + ' ' + 'incorrect guesses left') 
+        else:
+          print('You are out of incorrect guesses! ')
+
+
+    elif len(guess) == len(secret_word) and guess != secret_word :
+      if incorrect_guesses_left != 0 : 
+        print('That is not the correct word! ')
+        print('You have ' + str(incorrect_guesses_left) + ' ' + 'incorrect guesses left' + ' ') 
+      else:
+        print('You are out of incorrect guesses.')
+    elif guess == secret_word :
+      print('That is the correct word! ')
+      break 
+    elif 1 < len(guess) < len(secret_word) : 
+    # incorrect_guesses_left -= 1
+      print('That is not a valid guess! ')
+      print('You have ' + str(incorrect_guesses_left ) + ' ' + 'incorrect guesses left' ) 
+
+
+  else:
+    print('You are out of incorrect guesses! ')
